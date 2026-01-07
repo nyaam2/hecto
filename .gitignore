@@ -1,0 +1,19 @@
+# conda / venv
+miniconda3/
+envs/
+*.conda
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# data / outputs
+data/
+outputs/
+runs/
+wandb/
+checkpoints/
+
+# mac
+.DS_Store

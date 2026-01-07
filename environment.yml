@@ -1,0 +1,15 @@
+name: hecto
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - matplotlib
+  - tqdm
+  - pyyaml
+  - opencv
+  - numpy
+  - torchaudio
+  - torchvision
+  - pytorch
+  - pytorch-cuda=11.8
+prefix: /home/junghyun/miniconda3/envs/hecto

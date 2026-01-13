@@ -1,0 +1,35 @@
+seed: 42
+
+model:
+  timm_name: "swinv2_base_window8_256"
+  hf_id: "microsoft/swinv2-base-patch4-window8-256"
+  num_classes: 2
+  drop_rate: 0.0
+
+data:
+  train_csv: "train_data/train.csv"
+  val_csv: ""              # 비워두면 train에서 자동 split
+  test_csv: "test_data/test.csv"
+  img_root: ""             # csv에 절대경로면 비워도 됨
+  img_size: 256
+  mean: [0.485, 0.456, 0.406]
+  std:  [0.229, 0.224, 0.225]
+  val_ratio: 0.1
+
+train:
+  epochs: 6
+  batch_size: 32
+  num_workers: 8
+  lr: 3.0e-5
+  weight_decay: 0.05
+  label_smoothing: 0.05
+  amp: true
+  grad_clip: 1.0
+  warmup_ratio: 0.1
+
+inference:
+  batch_size: 64
+  num_workers: 8
+  output_csv: "submission.csv"
+  aggregation: "topk_mean"  # "mean" | "median" | "topk_mean"
+  topk_ratio: 0.1           # top 10% 프레임 평균
